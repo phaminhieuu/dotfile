@@ -33,9 +33,5 @@ keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
--- Get out the bracket and go to Insert mode
-keymap.set('n', 'q', 'la', { silent = true })
-keymap.set('n', 'z', 'lla', { silent = true })
-
 -- Set wrap
 keymap.set('n', 'sw', ':set wrap<Return>', { silent = true })
