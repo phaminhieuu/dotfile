@@ -5,7 +5,6 @@ if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
 
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -72,6 +71,11 @@ nvim_lsp.html.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = {
@@ -108,7 +112,6 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
 }
-
 
 nvim_lsp.prismals.setup {
   on_attach = on_attach,

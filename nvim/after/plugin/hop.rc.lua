@@ -13,4 +13,8 @@ map('', 'q', function()
   hop.hint_char2()
 end)
 
+map('', 'Q', function()
+  hop.hint_char1()
+end)
+
 
