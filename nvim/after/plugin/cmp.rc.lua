@@ -2,13 +2,23 @@ local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local lspkind = require 'lspkind'
 
-local source_mapping = {
-	buffer = "[Buffer]",
-	nvim_lsp = "[LSP]",
-	nvim_lua = "[Lua]",
-	cmp_tabnine = "[TN]",
-	path = "[Path]",
-}
+local function formatForTailwindCSS(entry, vim_item)
+  if vim_item.kind == 'Color' and entry.completion_item.documentation then
+    local _, _, r, g, b = string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
+    if r then
+      local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
+      local group = 'Tw_' .. color
+      if vim.fn.hlID(group) < 1 then
+        vim.api.nvim_set_hl(0, group, { fg = '#' .. color })
+      end
+      vim_item.kind = "●"
+      vim_item.kind_hl_group = group
+      return vim_item
+    end
+  end
+  vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
+  return vim_item
+end
 
 cmp.setup({
   snippet = {
@@ -32,26 +42,19 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'buffer' },
+    { name = 'path' },
   }),
-  -- formatting = {
-  --   format = lspkind.cmp_format({
-  --     mode = 'symbol_text',
-  --     with_text = false,
-  --     maxwidth = 50,
-  --   })
-  -- }
-  formatting = {
-		format = function(entry, vim_item)
-			-- if you have lspkind installed, you can use it like
-			-- in the following line:
-	 		vim_item.kind = lspkind.symbolic(vim_item.kind, {mode = "symbol_text"})
-	 		vim_item.menu = source_mapping[entry.source.name]
-	 		local maxwidth = 80
-	 		vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
-	 		return vim_item
-	  end,
-	},
+   formatting = {
+     format = lspkind.cmp_format({
+      maxwidth = 80,
+      before = function(entry, vim_item)
+        vim_item = formatForTailwindCSS(entry, vim_item)
+        return vim_item
+      end
+     })
+   }
 })
 
 vim.cmd [[

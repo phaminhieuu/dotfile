@@ -15,6 +15,7 @@ prettier.setup {
     'json',
     'scss',
     'less',
-    'prisma'
+    'prisma',
+    'svelte'
   },
 }

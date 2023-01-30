@@ -13,15 +13,14 @@ local lsp_formatting = function(bufnr)
   })
 end
 
+---@diagnostic disable-next-line: redundant-parameter
 null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
+      diagnostics_format = 'eslint: #{m}\n(#{c})'
     }),
-    null_ls.builtins.diagnostics.zsh,
     formating.prettierd,
-    formating.eslint_d,
-    formating.stylua
+    formating.stylua,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

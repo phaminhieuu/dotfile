@@ -95,5 +95,4 @@ packer.startup(function(use)
 
   -- auto save
   use 'pocco81/auto-save.nvim' -- Auto save in Nvim
-
 end)

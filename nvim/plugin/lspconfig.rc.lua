@@ -7,6 +7,7 @@ local protocol = require('vim.lsp.protocol')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -78,15 +79,6 @@ nvim_lsp.rust_analyzer.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-  },
-  cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }
 
@@ -99,6 +91,9 @@ nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
@@ -124,6 +119,11 @@ nvim_lsp.tailwindcss.setup {
 }
 
 nvim_lsp.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.svelte.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
