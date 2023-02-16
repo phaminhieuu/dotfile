@@ -1,98 +1,107 @@
-local status, packer = pcall(require, 'packer')
-if (not status) then
-  print("Packer is not installed")
-  return
+local status, packer = pcall(require, "packer")
+if not status then
+	print("Packer is not installed")
+	return
 end
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
+	use("wbthomason/packer.nvim")
 
-  -- color schemas
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
-  use 'norcalli/nvim-colorizer.lua'
+	-- color schemas
+	use({
+		"svrana/neosolarized.nvim",
+		requires = { "tjdevries/colorbuddy.nvim" },
+	})
 
-  -- bufferline 
-  use 'akinsho/nvim-bufferline.lua'
+	-- use("folke/tokyonight.nvim")
 
-  -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-  use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("norcalli/nvim-colorizer.lua")
 
-  -- icons
-  use 'kyazdani42/nvim-web-devicons'
+	-- bufferline
+	use("akinsho/nvim-bufferline.lua")
 
-  -- automatic bracket pairs
-  use 'windwp/nvim-autopairs'
+	-- treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
-  -- autotag
-  use 'windwp/nvim-ts-autotag'
+	-- icons
+	use("kyazdani42/nvim-web-devicons")
 
-  -- smooth scrolling
+	-- automatic bracket pairs
+	use("windwp/nvim-autopairs")
+
+	-- autotag
+	use("windwp/nvim-ts-autotag")
+
+	-- smooth scrolling
 	use("karb94/neoscroll.nvim")
 
-  -- surround selections
-  use("kylechui/nvim-surround")
-
-  -- quick motions
+	-- quick motions
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2",
 	})
-  -- git decorations in files
-  use 'lewis6991/gitsigns.nvim'
+	-- git decorations in files
+	use("lewis6991/gitsigns.nvim")
 
-  -- commenting
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use { 'numToStr/Comment.nvim' }
+	-- commenting
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({ "numToStr/Comment.nvim" })
 
-  -- telescope
-  use 'nvim-lua/plenary.nvim' -- Common utilities
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-telescope/telescope-ui-select.nvim'
+	-- telescope
+	use("nvim-lua/plenary.nvim") -- Common utilities
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
 
-  -- status line
-  use 'hoob3rt/lualine.nvim'
+	-- status line
+	use("hoob3rt/lualine.nvim")
 
-  -- snippet
-  use 'L3MON4D3/LuaSnip' -- Snippet
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
+	-- snippet
+	use("L3MON4D3/LuaSnip") -- Snippet
+	use("onsails/lspkind-nvim") -- vscode-like pictograms
 
-  -- formatting, code actions and diagnostics
-  use 'jose-elias-alvarez/null-ls.nvim'
+	-- formatting, code actions and diagnostics
+	use("jose-elias-alvarez/null-ls.nvim")
 
-  -- lsp
-  use 'neovim/nvim-lspconfig'
+	-- lsp
+	use("neovim/nvim-lspconfig")
 
-  -- lsp installer
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+	-- lsp installer
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 
-  -- lsp UI
-  use 'glepnir/lspsaga.nvim'
+	-- lsp UI
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 
-  -- autocompletion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer' --nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-path' -- Completion
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/cmp-nvim-lua' -- nvim-cmp source for neovim's built-in LSP
-  use 'saadparwaiz1/cmp_luasnip'
+	-- autocompletion
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
+	use("saadparwaiz1/cmp_luasnip")
 
-  -- prettier
-  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client :
+	-- prettier
+	use("MunifTanjim/prettier.nvim")
 
-  -- lazy git
-  use 'kdheepak/lazygit.nvim'
+	-- lazy git
+	use("kdheepak/lazygit.nvim")
 
-  -- auto save
-  use 'pocco81/auto-save.nvim' -- Auto save in Nvim
+	-- auto save
+	use("pocco81/auto-save.nvim") -- Auto save in Nvim
 end)

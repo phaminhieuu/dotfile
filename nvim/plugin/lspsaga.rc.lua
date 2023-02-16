@@ -2,16 +2,8 @@ local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
 saga.setup({
-  server_filetype_map = {
-    typescript = 'typescript',
-    javascript = 'javascript',
-  },
   ui = {
-    preview = {
-      lines_below = 100
-    },
     border = 'rounded',
-    code_action = ' ',
     colors = {
       normal_bg = 'none',
       red = '#dc322f',
@@ -28,6 +20,9 @@ saga.setup({
   },
   diagnostic = {
     show_code_action = false
+  },
+  symbol_in_winbar = {
+    enable = false
   }
 })
 
