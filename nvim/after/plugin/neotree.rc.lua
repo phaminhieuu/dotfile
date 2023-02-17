@@ -7,4 +7,5 @@ neotree.setup({
 	window = { width = 30 },
 })
 
-vim.cmd("NeoTreeClose")
+vim.keymap.set("n", "tg", ":Neotree float git_status<Return>", { silent = true })
+vim.keymap.set("n", "<C-t>", ":Neotree<Return>", { silent = true })

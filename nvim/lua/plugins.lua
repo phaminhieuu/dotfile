@@ -51,6 +51,9 @@ packer.startup(function(use)
 	-- git decorations in files
 	use("lewis6991/gitsigns.nvim")
 
+	-- git blame and browse
+	use("dinhhuy258/git.nvim")
+
 	-- commenting
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({ "numToStr/Comment.nvim" })
@@ -111,7 +114,7 @@ packer.startup(function(use)
 	use("MunifTanjim/prettier.nvim")
 
 	-- lazy git
-	use("kdheepak/lazygit.nvim")
+	-- use("kdheepak/lazygit.nvim")
 
 	-- auto save
 	use("pocco81/auto-save.nvim") -- Auto save in Nvim
