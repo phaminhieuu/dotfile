@@ -18,6 +18,7 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+---@diagnostic disable-next-line: redundant-parameter
 null_ls.setup({
 	sources = {
 		diagnostics.eslint_d.with({

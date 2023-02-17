@@ -29,7 +29,7 @@ packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 
 	-- icons
 	use("kyazdani42/nvim-web-devicons")
@@ -70,7 +70,7 @@ packer.startup(function(use)
 		branch = "v2.x",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	})
