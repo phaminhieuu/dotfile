@@ -48,6 +48,7 @@ packer.startup(function(use)
 		"phaazon/hop.nvim",
 		branch = "v2",
 	})
+
 	-- git decorations in files
 	use("lewis6991/gitsigns.nvim")
 
@@ -69,8 +70,6 @@ packer.startup(function(use)
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	})
@@ -96,10 +95,6 @@ packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
 	})
 
 	-- autocompletion
