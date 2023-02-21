@@ -30,8 +30,12 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered({ winhighlight = "Normal:None" }),
-		documentation = cmp.config.window.bordered({ winhighlight = "Normal:None" }),
+		completion = cmp.config.window.bordered({
+			winhighlight = "Normal:None,FloatBorder:None,CursorLine:PmenuSel,Search:None",
+		}),
+		documentation = cmp.config.window.bordered({
+			winhighlight = "Normal:None,FloatBorder:None",
+		}),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
