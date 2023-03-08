@@ -23,20 +23,7 @@ packer.startup(function(use)
 	use("akinsho/nvim-bufferline.lua")
 
 	-- dashboard startup
-	use({
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			require("dashboard").setup({
-				theme = "doom",
-				config = {
-					week_header = {
-						enable = true,
-					},
-				},
-			})
-		end,
-	})
+	use("glepnir/dashboard-nvim")
 
 	-- treesitter
 	use({
@@ -54,7 +41,7 @@ packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 
 	-- indent guides
-	use("lukas-reineke/indent-blankline.nvim")
+	-- use("lukas-reineke/indent-blankline.nvim")
 
 	-- autotag
 	use("windwp/nvim-ts-autotag")

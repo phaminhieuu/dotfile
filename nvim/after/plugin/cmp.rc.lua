@@ -31,10 +31,10 @@ cmp.setup({
 	},
 	window = {
 		completion = cmp.config.window.bordered({
-			winhighlight = "Normal:None,FloatBorder:None,CursorLine:PmenuSel,Search:None",
+			winhighlight = "Normal:None,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 		}),
 		documentation = cmp.config.window.bordered({
-			winhighlight = "Normal:None,FloatBorder:None",
+			winhighlight = "Normal:None,FloatBorder:FloatBorder",
 		}),
 	},
 	mapping = cmp.mapping.preset.insert({

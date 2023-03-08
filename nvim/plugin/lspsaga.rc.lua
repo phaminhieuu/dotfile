@@ -8,16 +8,6 @@ saga.setup({
 		border = "rounded",
 		colors = {
 			normal_bg = "none",
-			red = "#dc322f",
-			magenta = "#d33682",
-			orange = "#cb4b16",
-			yellow = "#b58900",
-			green = "#719e07",
-			cyan = "#2aa198",
-			blue = "#268bd2",
-			purple = "#6c71c4",
-			white = "#fdf6e3",
-			black = "#002b36",
 		},
 	},
 	diagnostic = {
