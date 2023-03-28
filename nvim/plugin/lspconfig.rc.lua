@@ -1,5 +1,3 @@
---vim.lsp.set_log_level("debug")
-
 local status, nvim_lsp = pcall(require, "lspconfig")
 if not status then
 	return
@@ -9,18 +7,17 @@ local protocol = require("vim.lsp.protocol")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
----@diagnostic disable-next-line: unused-local
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	-- local function buf_set_option(...)
-	-- 	vim.api.nvim_buf_set_option(bufnr, ...)
-	-- end
+	local function buf_set_option(...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
+	end
 
 	--Enable completion triggered by <c-x><c-o>
-	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
@@ -62,36 +59,28 @@ protocol.CompletionItemKind = {
 
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+vim.lsp.protocol.make_client_capabilities().textDocument.completion.completionItem.snippetSupport = true
 
-nvim_lsp.flow.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+local lsp_list = {
+	"flow",
+	"cssls",
+	"html",
+	"tsserver",
+	"sourcekit",
+	"prismals",
+	"tailwindcss",
+	"astro",
+	"svelte",
+	"jsonls",
+	-- "glslls",
+}
 
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.html.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.sourcekit.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+for _, lsp in pairs(lsp_list) do
+	nvim_lsp[lsp].setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+end
 
 nvim_lsp.lua_ls.setup({
 	on_attach = on_attach,
@@ -112,40 +101,15 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
-nvim_lsp.prismals.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.svelte.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
 	update_in_insert = false,
-	virtual_text = { spacing = 4, prefix = "●" },
+	virtual_text = { spacing = 4, prefix = "" },
 	severity_sort = true,
 })
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "󰅙", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -154,12 +118,10 @@ end
 
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "●",
+		prefix = "",
 	},
 	update_in_insert = true,
 	float = {
 		source = "always", -- Or "if_many"
 	},
 })
-
---●

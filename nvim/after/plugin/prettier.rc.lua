@@ -17,5 +17,6 @@ prettier.setup({
 		"less",
 		"prisma",
 		"svelte",
+		"astro",
 	},
 })

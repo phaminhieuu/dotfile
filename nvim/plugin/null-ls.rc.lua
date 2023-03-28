@@ -9,6 +9,8 @@ local formating = null_ls.builtins.formatting
 
 local diagnostics = null_ls.builtins.diagnostics
 
+local code_actions = null_ls.builtins.code_actions
+
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
@@ -22,10 +24,11 @@ end
 null_ls.setup({
 	sources = {
 		diagnostics.eslint_d.with({
-			diagnostics_format = "eslint: #{m}\n(#{c})",
+			-- diagnostics_format = "#{m}\n(#{c})",
 		}),
 		formating.prettierd,
 		formating.stylua,
+		code_actions.eslint_d,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
