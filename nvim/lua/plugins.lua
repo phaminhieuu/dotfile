@@ -66,7 +66,7 @@ packer.startup(function(use)
 	use({ "numToStr/Comment.nvim" })
 
 	-- telescope
-	use("nvim-lua/plenary.nvim") -- Common utilities
+	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
@@ -84,8 +84,8 @@ packer.startup(function(use)
 	use("hoob3rt/lualine.nvim")
 
 	-- snippet
-	use("L3MON4D3/LuaSnip") -- Snippet
-	use("onsails/lspkind-nvim") -- vscode-like pictograms
+	use("L3MON4D3/LuaSnip")
+	use("onsails/lspkind-nvim")
 
 	-- formatting, code actions and diagnostics
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -118,5 +118,5 @@ packer.startup(function(use)
 	-- use("kdheepak/lazygit.nvim")
 
 	-- auto save
-	use("pocco81/auto-save.nvim") -- Auto save in Nvim
+	use("pocco81/auto-save.nvim")
 end)
