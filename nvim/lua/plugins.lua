@@ -15,8 +15,6 @@ packer.startup(function(use)
 		requires = { "tjdevries/colorbuddy.nvim" },
 	})
 
-	-- use("folke/tokyonight.nvim")
-
 	use("norcalli/nvim-colorizer.lua")
 
 	-- bufferline
@@ -32,6 +30,7 @@ packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 
 	-- icons
@@ -40,7 +39,7 @@ packer.startup(function(use)
 	-- automatic bracket pairs
 	use("windwp/nvim-autopairs")
 
-	-- indent guides
+	-- indent lines
 	-- use("lukas-reineke/indent-blankline.nvim")
 
 	-- autotag
@@ -76,6 +75,8 @@ packer.startup(function(use)
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	})
@@ -110,6 +111,9 @@ packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use("saadparwaiz1/cmp_luasnip")
+
+	-- github copilot
+	use("github/copilot.vim")
 
 	-- prettier
 	use("MunifTanjim/prettier.nvim")

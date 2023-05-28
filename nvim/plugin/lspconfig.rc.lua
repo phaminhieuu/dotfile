@@ -72,7 +72,7 @@ local lsp_list = {
 	"astro",
 	"svelte",
 	"jsonls",
-	-- "glslls",
+	"glslls",
 }
 
 for _, lsp in pairs(lsp_list) do
