@@ -61,6 +61,23 @@ protocol.CompletionItemKind = {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.lsp.protocol.make_client_capabilities().textDocument.completion.completionItem.snippetSupport = true
 
+require("lspconfig").glslls.setup({
+	capabilities = {
+		offsetEncoding = { "utf-8", "utf-16" },
+		textDocument = {
+			completion = {
+				editsNearCursor = true,
+			},
+		},
+	},
+	cmd = { "glslls", "--stdin" },
+	filetypes = { "glsl" },
+	root_dir = function(fname)
+		return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+	end,
+	signle_file_support = true,
+})
+
 local lsp_list = {
 	"flow",
 	"cssls",
@@ -73,6 +90,7 @@ local lsp_list = {
 	"svelte",
 	"jsonls",
 	"glslls",
+	"pyright",
 }
 
 for _, lsp in pairs(lsp_list) do

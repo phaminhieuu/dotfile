@@ -99,10 +99,7 @@ packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 
 	-- lsp UI
-	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-	})
+	use("nvimdev/lspsaga.nvim")
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp")
