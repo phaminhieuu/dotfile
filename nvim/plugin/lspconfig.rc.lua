@@ -119,6 +119,18 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
+-- nvim_lsp.ymalls.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	settings = {
+-- 		yaml = {
+-- 			schemas = {
+-- 				["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+-- 			},
+-- 		},
+-- 	},
+-- })
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
 	update_in_insert = false,
