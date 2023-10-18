@@ -13,26 +13,22 @@ return {
 				show_close_icon = false,
 				color_icons = true,
 			},
-			-- highlights = {
-			-- 	separator = {
-			-- 		fg = "#073642",
-			-- 		bg = "#002b36",
-			-- 	},
-			-- 	separator_selected = {
-			-- 		fg = "#073642",
-			-- 	},
-			-- 	background = {
-			-- 		fg = "#657b83",
-			-- 		bg = "#002b36",
-			-- 	},
-			-- 	buffer_selected = {
-			-- 		fg = "#fdf6e3",
-			-- 		bold = true,
-			-- 	},
-			-- 	fill = {
-			-- 		bg = "#073642",
-			-- 	},
-			-- },
+			highlights = {
+
+				separator = {
+					fg = "#24283b",
+					bg = "#24283b",
+				},
+				separator_selected = {
+					fg = "#24283b",
+				},
+				background = {
+					bg = "#24283b",
+				},
+				fill = {
+					bg = "#24283b",
+				},
+			},
 		})
 
 		vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", {})
