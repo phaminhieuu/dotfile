@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -7,8 +6,10 @@ return {
 
 		config = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
+
 			local ts = require("nvim-treesitter.configs")
 
+			---@diagnostic disable-next-line: missing-fields
 			ts.setup({
 				highlight = {
 					enable = true,

@@ -2,7 +2,7 @@ require("novaera.core.base")
 require("novaera.core.maps")
 require("novaera.core.windows")
 require("novaera.core.maps")
-require("novaera.core.maps")
+require("novaera.core.highlights")
 
 local has = function(x)
 	return vim.fn.has(x) == 1

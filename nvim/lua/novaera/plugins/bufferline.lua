@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return {
 	"akinsho/nvim-bufferline.lua",
 	config = function()
@@ -14,19 +13,23 @@ return {
 				color_icons = true,
 			},
 			highlights = {
-
 				separator = {
-					fg = "#24283b",
-					bg = "#24283b",
+					fg = "#073642",
+					bg = "#002b36",
 				},
 				separator_selected = {
-					fg = "#24283b",
+					fg = "#073642",
 				},
 				background = {
-					bg = "#24283b",
+					fg = "#657b83",
+					bg = "#002b36",
+				},
+				buffer_selected = {
+					fg = "#fdf6e3",
+					bold = true,
 				},
 				fill = {
-					bg = "#24283b",
+					bg = "#073642",
 				},
 			},
 		})

@@ -59,31 +59,11 @@ return {
 
 		-- Set up completion using nvim_cmp with LSP source
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		vim.lsp.protocol.make_client_capabilities().textDocument.completion.completionItem.snippetSupport = true
-
-		require("lspconfig").glslls.setup({
-			capabilities = {
-				offsetEncoding = { "utf-8", "utf-16" },
-				textDocument = {
-					completion = {
-						editsNearCursor = true,
-					},
-				},
-			},
-			cmd = { "glslls", "--stdin" },
-			filetypes = { "glsl" },
-			root_dir = function(fname)
-				return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-			end,
-			signle_file_support = true,
-		})
 
 		local lsp_list = {
-			"flow",
 			"cssls",
 			"html",
 			"tsserver",
-			"sourcekit",
 			"prismals",
 			"tailwindcss",
 			"astro",
@@ -101,7 +81,9 @@ return {
 		end
 
 		nvim_lsp.lua_ls.setup({
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+			end,
 			capabilities = capabilities,
 			settings = {
 				Lua = {

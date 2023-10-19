@@ -4,10 +4,10 @@ return {
 	config = function()
 		local dashboard = require("dashboard")
 
-		-- vim.cmd([[highlight DashboardHeader guifg=#2AA198]])
-		-- vim.cmd([[highlight DashboardIcon guifg=#268BD2]])
-		-- vim.cmd([[highlight DashboardDesc guifg=#268BD2]])
-		-- vim.cmd([[highlight DashboardKey guifg=#DC322F]])
+		vim.cmd([[highlight DashboardHeader guifg=#2AA198]])
+		vim.cmd([[highlight DashboardIcon guifg=#268BD2]])
+		vim.cmd([[highlight DashboardDesc guifg=#268BD2]])
+		vim.cmd([[highlight DashboardKey guifg=#DC322F]])
 
 		local header = {
 			"",
@@ -44,8 +44,10 @@ return {
 						key = ";r",
 					},
 				},
+				footer = {
+					"===== Make the world better! =====",
+				},
 			},
-			footer = {},
 		})
 	end,
 }
