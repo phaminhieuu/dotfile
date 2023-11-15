@@ -3,10 +3,6 @@ local keymap = vim.keymap
 -- Do not yank with x
 keymap.set("n", "x", '"_x')
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<c-x>")
-
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
@@ -32,3 +28,4 @@ keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
+

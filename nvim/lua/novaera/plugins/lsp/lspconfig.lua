@@ -64,12 +64,11 @@ return {
 			"cssls",
 			"html",
 			"tsserver",
-			"prismals",
 			"tailwindcss",
 			"astro",
 			"svelte",
 			"jsonls",
-			"glslls",
+      "glslls",
 			"pyright",
 		}
 

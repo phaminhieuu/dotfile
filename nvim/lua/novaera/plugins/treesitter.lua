@@ -1,6 +1,9 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 
@@ -9,15 +12,15 @@ return {
 
 			local ts = require("nvim-treesitter.configs")
 
-			---@diagnostic disable-next-line: missing-fields
 			ts.setup({
 				highlight = {
 					enable = true,
-					disable = {},
 				},
 				indent = {
 					enable = true,
-					disable = {},
+				},
+				autotag = {
+					enable = true,
 				},
 				ensure_installed = {
 					"tsx",
@@ -34,15 +37,10 @@ return {
 					"astro",
 					"markdown",
 				},
-				autotag = {
-					enable = true,
-				},
 				configs = {
 					context_commentstring = {
 						enable = true,
-						commentary_integration = {
-							Commentary = "g/",
-						},
+						enable_autocmd = false,
 					},
 				},
 			})

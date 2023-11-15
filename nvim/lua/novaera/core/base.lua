@@ -32,7 +32,6 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
--- but this doesn't work on iTerm2
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {

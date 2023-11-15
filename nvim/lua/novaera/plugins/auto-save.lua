@@ -3,6 +3,8 @@ return {
 	config = function()
 		local autosave = require("auto-save")
 
-		autosave.setup({})
+		autosave.setup({
+			-- debounce_delay = 1000,
+		})
 	end,
 }
