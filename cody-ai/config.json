@@ -1,0 +1,77 @@
+{
+  "config": {
+    "proxy": "",
+    "codebase": "",
+    "customHeaders": {},
+    "useContext": "blended",
+    "debugVerbose": false,
+    "debugFilter": null,
+    "telemetryLevel": "all",
+    "autocomplete": true,
+    "autocompleteLanguages": {
+      "*": true
+    },
+    "chatPreInstruction": "",
+    "editPreInstruction": "",
+    "commandCodeLenses": false,
+    "autocompleteAdvancedProvider": null,
+    "autocompleteAdvancedModel": null,
+    "autocompleteCompleteSuggestWidgetSelection": true,
+    "autocompleteFormatOnAccept": false,
+    "autocompleteDisableInsideComments": false,
+    "codeActions": true,
+    "commandHints": true,
+    "internalUnstable": false,
+    "autocompleteExperimentalGraphContext": null,
+    "experimentalCommitMessage": true,
+    "experimentalNoodle": false,
+    "experimentalTracing": false,
+    "experimentalSupercompletions": false,
+    "experimentalChatContextRanker": false,
+    "autocompleteExperimentalHotStreak": false,
+    "autocompleteExperimentalOllamaOptions": {
+      "url": "http://localhost:11434",
+      "model": "codellama:7b-code"
+    },
+    "isRunningInsideAgent": false,
+    "autocompleteTimeouts": {},
+    "autocompleteFirstCompletionTimeout": 1500,
+    "accessToken": "sgp_636f79ad2075640f_a065b304ee09ba08d30df06916470e46f5f51263",
+    "serverEndpoint": "https://sourcegraph.com/"
+  },
+  "authStatus": {
+    "endpoint": "https://sourcegraph.com/",
+    "isDotCom": true,
+    "isLoggedIn": true,
+    "showInvalidAccessTokenError": false,
+    "authenticated": true,
+    "hasVerifiedEmail": true,
+    "requiresVerifiedEmail": true,
+    "siteHasCodyEnabled": true,
+    "siteVersion": "278142_2024-06-12_5.4-088ca29c0f65",
+    "userCanUpgrade": true,
+    "username": "phamminhhieu85",
+    "primaryEmail": "minhhieupham851999@gmail.com",
+    "displayName": "Pham Minh Hieu",
+    "avatarURL": "https://avatars.githubusercontent.com/u/60103133?v=4",
+    "codyApiVersion": 1,
+    "configOverwrites": {
+      "chatModel": "anthropic/claude-3-sonnet-20240229",
+      "chatModelMaxTokens": 12000,
+      "fastChatModel": "anthropic/claude-3-haiku-20240307",
+      "fastChatModelMaxTokens": 12000,
+      "completionModel": "fireworks/starcoder",
+      "completionModelMaxTokens": 9000,
+      "provider": "sourcegraph",
+      "smartContextWindow": true
+    }
+  },
+  "anonymousUserID": "940ba8a4-2fae-4405-bf8b-62be9e09a5b0",
+  "extensionDetails": {
+    "ide": "VSCode",
+    "ideExtensionType": "Cody",
+    "platform": "macos",
+    "arch": "aarch64",
+    "version": "1.22.0"
+  }
+}
