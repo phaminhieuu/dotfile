@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	lazy = false,
+	lazy = true,
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -22,8 +22,6 @@ return {
 			"html",
 			"yamlls",
 			"dockerls",
-			"gopls",
-			"prismals",
 		}
 
 		for _, lsp in pairs(lsp_list) do

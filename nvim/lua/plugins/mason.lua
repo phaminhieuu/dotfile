@@ -24,12 +24,8 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
-				"svelte",
 				"lua_ls",
-				"pyright",
 				"astro",
-				"glslls",
-				"gopls",
 			},
 			automatic_installation = true,
 		})

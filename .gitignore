@@ -11,3 +11,6 @@ com.filestar.macos
 /karabiner
 /github-copilot
 cog
+/zed
+.DS_Store
+/simple-update-notifier
