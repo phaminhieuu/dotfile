@@ -17,17 +17,17 @@ return {
         "astro",
         "css",
         "gitignore",
-        "go",
         "http",
-        "scss",
         "sql",
-        "svelte",
         "glsl",
         "javascript",
         "typescript",
+        "tsx",
         "json",
         "yaml",
         "dockerfile",
+        "markdown",
+        "markdown_inline"
       },
     },
     config = function(_, opts)
@@ -36,8 +36,15 @@ return {
       -- MDX
       vim.filetype.add({
         extension = {
-          mdx = "mdx",
+          mdx = "markdown.mdx",
         },
+      })
+
+      vim.filetype.add({
+        extension = {
+          vs = "glsl",
+          fs = "glsl",
+        }
       })
 
       vim.treesitter.language.register("markdown", "mdx")
