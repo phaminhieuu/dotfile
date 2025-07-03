@@ -27,7 +27,8 @@ return {
         "yaml",
         "dockerfile",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
+        "go",
       },
     },
     config = function(_, opts)
@@ -44,7 +45,7 @@ return {
         extension = {
           vs = "glsl",
           fs = "glsl",
-        }
+        },
       })
 
       vim.treesitter.language.register("markdown", "mdx")

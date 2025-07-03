@@ -35,7 +35,8 @@ return {
         "bashls",
         "dockerls",
         "prettierd",
-        "biome",
+        -- "biome",
+        "gopls",
       },
       automatic_installation = true,
     })

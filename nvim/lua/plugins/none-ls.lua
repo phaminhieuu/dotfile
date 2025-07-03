@@ -19,6 +19,7 @@ return {
           ".eslintrc.json",
           ".eslintrc",
           "eslint.config.cjs",
+          "eslint.config.mjs",
           "eslint.config.ts",
         })
       end,
@@ -44,10 +45,10 @@ return {
 
     null_ls.setup({
       sources = {
-        require('none-ls.diagnostics.eslint_d').with(eslint_config),
-        require('none-ls.code_actions.eslint_d').with(eslint_config),
-        formatting.prettierd.with(prettier_config),
-        formatting.biome,
+        require("none-ls.diagnostics.eslint_d").with(eslint_config),
+        require("none-ls.code_actions.eslint_d").with(eslint_config),
+        formatting.prettier.with(prettier_config),
+        -- formatting.biome,
         formatting.stylua,
         formatting.shfmt,
       },

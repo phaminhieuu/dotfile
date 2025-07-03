@@ -1,8 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre" },
   lazy = true,
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     local on_attach = function(_, bufnr)
       local function buf_set_option(...)
@@ -27,8 +29,10 @@ return {
       "marksman",
       "yamlls",
       "bashls",
-      "biome",
+      -- "biome",
       "gopls",
+      "phpactor",
+      "graphql",
     }
 
     for _, lsp in pairs(lsp_list) do
